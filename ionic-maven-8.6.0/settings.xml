@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  	<localRepository>/opt/repo</localRepository>
+
+	<servers>
+		<server>
+			<id>nexus-telchina</id>
+			<username>deployer</username>
+			<password>telchinaDeployer</password>
+		</server>
+		<server>
+			<id>nexus-telchina-thirdparty</id>
+			<username>deployer</username>
+			<password>telchinaDeployer</password>
+		</server>
+	</servers>
+	<profiles>
+		<profile>
+			<id>work</id>
+			<repositories>
+				<repository>
+					<id>nexus-telchina</id>
+					<name>telchia private nexus</name>
+					<url>http://10.10.70.220:8081/nexus/content/groups/public/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>nexus-telchina-thirdparty</id>
+					<name>telchia thirdparty nexus</name>
+					<url>http://10.10.70.220:8081/nexus/content/repositories/thirdparty/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+				
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>nexus-telchina</id>
+					<name>telchia private nexus</name>
+					<url>http://10.10.70.220:8081/nexus/content/groups/public/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</pluginRepository>
+			
+			</pluginRepositories>
+		</profile>
+		
+	</profiles>
+	<activeProfiles>
+		<activeProfile>work</activeProfile>
+	</activeProfiles>
+</settings>
